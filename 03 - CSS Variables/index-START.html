@@ -57,10 +57,7 @@
   </style>
 
   <script>
-    const operation = document.querySelectorAll('.controls input');
-    console.log(operation);
-    console.log(operation[0]);
-    const value = operation[0].querySelector('value');
+    const operation = document.querySelectorAll('input'); // we only have inputs within control class
 
     //
     operation.forEach (a => a.addEventListener('change', eventReceiver));
