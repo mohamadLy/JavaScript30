@@ -18,13 +18,19 @@
     <input id="base" type="color" name="base" value="#ffc600">
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
+  <!-- <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500"> -->
+  <img src="Picture1.png" alt="">
 
   <style>
 
     /*
       misc styles, nothing to do with CSS variables
     */
+    :root {
+      --base: #ffc600;
+      --blur: 12px;
+      --spacing: 6px;
+    }
 
     body {
       text-align: center;
@@ -42,9 +48,34 @@
     input {
       width:100px;
     }
+
+    img {
+      filter: blur(var(--blur));
+      padding: var(--spacing);
+      background: var(--base);
+    }
   </style>
 
   <script>
+    const operation = document.querySelectorAll('.controls input');
+    console.log(operation);
+    console.log(operation[0]);
+    const value = operation[0].querySelector('value');
+
+    //
+    operation.forEach (a => a.addEventListener('change', eventReceiver));
+    operation.forEach(a => a.addEventListener('mousemove', eventReceiver));
+
+
+    function eventReceiver(e) {
+      if(this.name != "base") {
+        console.log("this.dataset= " + `${this.value}${this.dataset.sizing}`);
+        document.documentElement.style.setProperty(`--${this.name}`, `${this.value}${this.dataset.sizing}`);
+      } else {
+        console.log("expected= " + this.value);
+        document.documentElement.style.setProperty(`--${this.name}`, `${this.value}`);
+      }
+    }
   </script>
 
 </body>
