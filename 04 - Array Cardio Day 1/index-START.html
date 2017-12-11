@@ -31,17 +31,47 @@
 
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
+    /*
+    const result = inventors.filter(function(inventor) {
+      if(inventor.year >= 1500 && inventor.year < 1600) {
+        return true;
+      }
+    });
+    */
+    // using gama notation
+    const result = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year <1600));
+    console.table(result);
 
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
+    const firstAndLastName = inventors.map(function(investor) {
+      return [{fist: `${investor.first}`, last: investor.last}];
+    });
+    //console.log(firstAndLastName);
 
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const sorted = inventors.sort(function(investor1, investor2) {
+      if(investor1.year < investor2.year) {
+        return true;
+      }
+    });
+    console.log(sorted);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
+    const numberOfYears = inventors.reduce(function(inventor1, inventor2) {
+      return inventor1.year + inventor2.years;
+    });
+    console.log(numberOfYears);
 
     // 5. Sort the inventors by years lived
+    const sortedByLived = inventors.sort(function(investor1, investor2){
+      const lived1 = investor1.passed - investor1.year;
+      const lived2 = investor2.passed - investor2.year;
+      return lived2 > lived1;
+    });
+    console.log(sortedByLived);
 
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -49,11 +79,25 @@
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    /*
+    const sortedByLastname = inventors.sort(function(inventor1, inventor2) {
+      return inventor2.last < inventor1.last;
+    });
+    console.log(sortedByLastname);
+    */
+    const sortedByLastname = inventors.sort((inventor1, inventor2) => (inventor2.last < inventor1.last));
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-
+    /*
+    const sum = data.reduce(function(a, b) {
+      return a + b;
+    });
+    */
+    // using alpha nothing
+    const sum = data.reduce((a, b) => (a + b));
+    console.log(sum);
   </script>
 </body>
 </html>

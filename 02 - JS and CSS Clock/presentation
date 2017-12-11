@@ -1,0 +1,13 @@
+We are using MS project for managing this project. We think, it's great tool for this kind of project
+From our WBS, we used MS project for scheduling each task, we also
+Allocated and assignment resource to the right task
+From that we estimated the project to cost around 800k for a duration of 247 days.
+Which is close to the estimation obtain using basic organic COCOMO. That just increases our confidence
+level about our estimations.
+
+we're going to used scrum as software development process, As you can see from this graph a big chuck of the
+schedule is consumed during implementation phase. implementation phase also include testing.
+Since Security is a big concern for this application. We want
+to make sure we did an exhaustive testing of the application before the final release.
+
+We also guarantee  50 days worth of maintenance after the final release.
