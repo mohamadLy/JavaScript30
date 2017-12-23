@@ -36,6 +36,19 @@
   </div>
 
   <script>
+    const panels = document.querySelectorAll(".panel");
+
+    for(let i = 0; i < panels.length; i++) {
+      panels[i].addEventListener('click', classSelector);
+    }
+
+    function classSelector(e) {
+      console.log(this);
+    //  console.log(this.style);
+    console.log(e.propertyName);
+    this.classList.toggle("open_active");
+    console.log(this.classList);
+    }
 
   </script>
 
