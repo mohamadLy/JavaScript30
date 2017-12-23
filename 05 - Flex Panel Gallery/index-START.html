@@ -39,13 +39,14 @@
     const panels = document.querySelectorAll(".panel");
 
     for(let i = 0; i < panels.length; i++) {
-      panels[i].addEventListener('click', open_active);
       panels[i].addEventListener('click', increaseWidth);
+      panels[i].addEventListener('transitionend', open_active); // should be listening for end event a click
     }
     function open_active(e) {
-      console.log(this);
-    this.classList.toggle("open_active");
-    console.log(this.classList);
+      console.log(e.propertyName);
+      if (e.propertyName.includes("flex-grow")) {
+        this.classList.toggle("open_active");
+      }
     }
 
     function increaseWidth(e) {
