@@ -40,14 +40,17 @@
 
     for(let i = 0; i < panels.length; i++) {
       panels[i].addEventListener('click', classSelector);
+      panels[i].addEventListener('click', increaseWidth);
     }
 
     function classSelector(e) {
       console.log(this);
-    //  console.log(this.style);
-    console.log(e.propertyName);
     this.classList.toggle("open_active");
     console.log(this.classList);
+    }
+
+    function increaseWidth(e) {
+      this.classList.toggle("open");
     }
 
   </script>
