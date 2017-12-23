@@ -39,11 +39,10 @@
     const panels = document.querySelectorAll(".panel");
 
     for(let i = 0; i < panels.length; i++) {
-      panels[i].addEventListener('click', classSelector);
+      panels[i].addEventListener('click', open_active);
       panels[i].addEventListener('click', increaseWidth);
     }
-
-    function classSelector(e) {
+    function open_active(e) {
       console.log(this);
     this.classList.toggle("open_active");
     console.log(this.classList);
@@ -52,7 +51,6 @@
     function increaseWidth(e) {
       this.classList.toggle("open");
     }
-
   </script>
 
 
