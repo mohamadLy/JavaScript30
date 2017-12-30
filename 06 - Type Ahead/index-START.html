@@ -59,7 +59,7 @@ fetch(endpoint).
       return `
       <li>
       <span class="name">${city}, ${state}</span>
-      <span class="population"> ${population}</span>
+      <span class="population"> ${numberWithCommas(population)}</span>
       </li>
       `;
     }).join('');
@@ -67,6 +67,9 @@ fetch(endpoint).
     suggestions.innerHTML = html;
   }
 
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 </script>
   </body>
 </html>
