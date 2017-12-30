@@ -17,6 +17,40 @@
 <script>
 const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
+let cities = [];
+fetch(endpoint).
+  then(
+    function(responce) {
+      if (responce.status !== 200) {
+        console.log('Something went wrong!', responce);
+        return;
+      }
+      /**
+       * parse Json
+       */
+       responce.json().then(function(data) {
+         cities = data;
+       });
+    }
+  );
+
+  function match(word, cities) {
+    let regex = new RegExp(word, 'gi');
+    let matches = cities.filter(function(current) {
+      //console.log(current);
+      return current.city.match(regex) || current.state.match(regex);
+    });
+    return matches;
+  }
+
+  const search = document.querySelector('.search');
+  search.addEventListener('input', list);
+
+  function list(e) {
+    const matches = match(this.value, cities);
+    console.log(matches);
+  }
+
 </script>
   </body>
 </html>
