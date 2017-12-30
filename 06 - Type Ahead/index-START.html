@@ -46,9 +46,25 @@ fetch(endpoint).
   const search = document.querySelector('.search');
   search.addEventListener('input', list);
 
-  function list(e) {
+  const suggestions = document.querySelector('.suggestions');
+
+  function list() {
     const matches = match(this.value, cities);
     console.log(matches);
+    const html = matches.map(place => {
+      console.log(place.city);
+      let city = place.city;
+      let state = place.state;
+      let population = place.population;
+      return `
+      <li>
+      <span class="name">${city}, ${state}</span>
+      <span class="population"> ${population}</span>
+      </li>
+      `;
+    }).join('');
+    console.log(html);
+    suggestions.innerHTML = html;
   }
 
 </script>
