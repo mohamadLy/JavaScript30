@@ -52,9 +52,9 @@ fetch(endpoint).
     const matches = match(this.value, cities);
     console.log(matches);
     const html = matches.map(place => {
-      console.log(place.city);
-      let city = place.city;
-      let state = place.state;
+      let regex = new RegExp(this.value, 'gi');
+      let city = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+      let state = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
       let population = place.population;
       return `
       <li>
